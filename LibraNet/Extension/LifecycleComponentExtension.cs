@@ -1,8 +1,5 @@
 ﻿using LibraNet.Contracts.Services;
-using LibraNet.Domain.LibraContext;
-using LibraNet.Services.AutoMapperProfiles;
 using LibraNet.Services.Services;
-using Microsoft.EntityFrameworkCore;
 
 namespace LibraNet.Api.Modules
 {

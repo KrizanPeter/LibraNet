@@ -1,4 +1,4 @@
-﻿using LibraNet.Domain.Entities;
+﻿using LibraNet.Contracts.Entities;
 using Microsoft.EntityFrameworkCore;
 
 

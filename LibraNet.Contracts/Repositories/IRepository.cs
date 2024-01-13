@@ -1,10 +1,5 @@
-﻿using LibraNet.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using LibraNet.Contracts.Entities;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LibraNet.Repositories
 {

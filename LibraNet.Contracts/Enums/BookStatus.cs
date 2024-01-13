@@ -4,14 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibraNet.Models.Enums
+namespace LibraNet.Contracts.Enums
 {
-    public enum BorrowingStatus
+    public enum BookStatus
     {
-
-        Free,
-        Reserved,
-        Borrowed,
-        Prolonged
+        New,
+        Used,
+        Damaged,
+        Lost,
     }
 }

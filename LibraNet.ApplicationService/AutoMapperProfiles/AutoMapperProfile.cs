@@ -1,9 +1,8 @@
 ﻿using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using LibraNet.Contracts.Dtos.Book;
+using LibraNet.Contracts.Dtos.Borrowing;
+using LibraNet.Contracts.Entities;
+
 
 namespace LibraNet.Services.AutoMapperProfiles
 {
@@ -11,7 +10,14 @@ namespace LibraNet.Services.AutoMapperProfiles
     {
         public AutoMapperProfile()
         {
+            CreateMap<Book, BookDto>();
+            CreateMap<Borrowing, BorrowingDto>();
 
+            CreateMap<BookCreateDto, Book > ();
+            CreateMap<BorrowingCreateDto, Borrowing>();
+
+            CreateMap<BookUpdateDto, Book>();
+            CreateMap<BorrowingUpdateDto, Borrowing>();
 
         }
     }

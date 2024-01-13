@@ -1,10 +1,9 @@
-﻿using LibraNet.Contracts;
-using LibraNet.Models.Enums;
-using System.Security.Principal;
+﻿using LibraNet.Contracts.Dtos.Borrowing;
+using LibraNet.Contracts.Enums;
 
-namespace LibraNet.Domain.Entities
+namespace LibraNet.Contracts.Dtos.Book
 {
-    public class Book : IBaseEntity
+    public class BookDto
     {
         public Guid Id { get; set; }
         public string? Title { get; set; }
@@ -15,7 +14,6 @@ namespace LibraNet.Domain.Entities
         public Guid LastModifyBy { get; set; }
         public DateTime DateOfCreation { get; set; }
         public DateTime DateOfLastModification { get; set; }
-        public virtual IEnumerable<Borrowing>? Borrowings { get; set; }
-
+        public IEnumerable<BorrowingDto>? Borrowings { get; set; }
     }
 }

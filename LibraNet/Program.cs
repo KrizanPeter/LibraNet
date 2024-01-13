@@ -1,6 +1,9 @@
 using LibraNet.Api.Extension;
 using LibraNet.Api.Modules;
+using LibraNet.Domain.LibraContext;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
 using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,9 +16,17 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddLifecycleComponentModule(builder.Configuration);
-builder.Services.AddApplicationServicesModule(builder.Configuration);   
+builder.Services.AddApplicationServicesModule(builder.Configuration);
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var dbContext = services.GetRequiredService<LibraDbContext>();
+
+    dbContext.Database.Migrate();
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

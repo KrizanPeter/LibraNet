@@ -1,4 +1,4 @@
-﻿using LibraNet.Contracts;
+﻿using LibraNet.Contracts.Entities;
 using LibraNet.Domain.LibraContext;
 using LibraNet.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -34,7 +34,7 @@ namespace LibraNet.Domain.Repositories
         public async Task<IEnumerable<T>> GetAllAsync()
         {
             IQueryable<T> querry = dbSet;
-            return await querry.ToListAsync();
+            return await querry.AsNoTracking().ToListAsync();
         }
 
         public async Task<IEnumerable<T>> GetAllAsync(Expression<Func<T, bool>>? filter = null, Func<IQueryable<T>, IOrderedQueryable<T>>? orderBy = null)
@@ -46,7 +46,7 @@ namespace LibraNet.Domain.Repositories
             }
             if (orderBy != null)
             {
-                return await orderBy(query).ToListAsync();
+                return await orderBy(query).AsNoTracking().ToListAsync();
             }
             return await query.ToListAsync();
         }
@@ -60,7 +60,7 @@ namespace LibraNet.Domain.Repositories
                 querry = querry.Where(filter);
             }
 
-            return await querry.FirstOrDefaultAsync();
+            return await querry.AsNoTracking().FirstOrDefaultAsync();
         }
 
         public void Remove(T entity)

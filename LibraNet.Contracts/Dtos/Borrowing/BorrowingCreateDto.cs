@@ -1,11 +1,6 @@
-﻿using LibraNet.Models.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using LibraNet.Contracts.Enums;
 
-namespace LibraNet.Services.Dtos.Borrowing
+namespace LibraNet.Contracts.Dtos.Borrowing
 {
     public class BorrowingCreateDto
     {
