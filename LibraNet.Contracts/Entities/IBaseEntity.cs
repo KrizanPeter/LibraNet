@@ -8,6 +8,7 @@ namespace LibraNet.Contracts
 {
     public interface IBaseEntity
     {
+        public Guid Id { get; set; }
         public Guid CreatedBy { get; set; }
         public Guid LastModifyBy { get; set; }
         public DateTime DateOfCreation { get; set; }

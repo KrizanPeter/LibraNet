@@ -8,9 +8,9 @@ namespace LibraNet.Models.Enums
 {
     public enum BookStatus
     {
-        Free,
-        Reserved,
-        Borrowed,
-        Prolonged
+        New,
+        Used,
+        Damaged,
+        Lost,
     }
 }

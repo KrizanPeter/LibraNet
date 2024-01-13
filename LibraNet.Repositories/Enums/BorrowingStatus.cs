@@ -8,9 +8,10 @@ namespace LibraNet.Models.Enums
 {
     public enum BorrowingStatus
     {
-        New, 
-        Used,
-        Damaged,
-        Lost,
+
+        Free,
+        Reserved,
+        Borrowed,
+        Prolonged
     }
 }

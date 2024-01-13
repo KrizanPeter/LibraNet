@@ -15,9 +15,4 @@
     <ProjectReference Include="..\LibraNet.Repositories\LibraNet.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Dtos\" />
-    <Folder Include="Services\" />
-  </ItemGroup>
-
 </Project>

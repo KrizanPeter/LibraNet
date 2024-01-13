@@ -7,7 +7,7 @@ namespace LibraNet.Api.Extension
 {
     public static class ApplicationServiceExtensions
     {
-        public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration config)
+        public static IServiceCollection AddApplicationServicesModule(this IServiceCollection services, IConfiguration config)
         {
             services.AddAutoMapper(typeof(AutoMapperProfile).Assembly);
 

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibraNet.ApplicationService
+namespace LibraNet.Services.Services
 {
     public class BorrowingService : IBorrowingService
     {

@@ -1,3 +1,4 @@
+using LibraNet.Api.Extension;
 using LibraNet.Api.Modules;
 using Microsoft.Extensions.Configuration;
 using System.Configuration;
@@ -12,6 +13,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddLifecycleComponentModule(builder.Configuration);
+builder.Services.AddApplicationServicesModule(builder.Configuration);   
 
 var app = builder.Build();
 

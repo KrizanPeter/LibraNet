@@ -1,6 +1,6 @@
 ﻿using LibraNet.Contracts.Services;
 
-namespace LibraNet.ApplicationService
+namespace LibraNet.Services.Services
 {
     public class BookService : IBookService
     {
