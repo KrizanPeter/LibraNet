@@ -1,4 +1,6 @@
-﻿using LibraNet.Contracts.Services;
+﻿using LibraNet.Contracts.Repositories;
+using LibraNet.Contracts.Services;
+using LibraNet.Domain.Repositories;
 using LibraNet.Services.Services;
 
 namespace LibraNet.Api.Modules
@@ -9,6 +11,9 @@ namespace LibraNet.Api.Modules
         {
             services.AddScoped<IBookService, BookService>();
             services.AddScoped<IBorrowingService, BorrowingService>();
+            services.AddScoped<IBookRepository, BookRepository>();
+            services.AddScoped<IBorrowingRepository, BorrowingRepository>();
+            services.AddScoped<IEmailNotificationService, EmailNotificationService>();
 
             return services;
         }

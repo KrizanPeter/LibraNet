@@ -13,8 +13,11 @@ namespace LibraNet.Services.AutoMapperProfiles
             CreateMap<Book, BookDto>();
             CreateMap<Borrowing, BorrowingDto>();
 
-            CreateMap<BookCreateDto, Book > ();
-            CreateMap<BorrowingCreateDto, Borrowing>();
+            CreateMap<BookCreateDto, Book>()
+                .BeforeMap((s, d) => d.Id = Guid.NewGuid());
+
+            CreateMap<BorrowingCreateDto, Borrowing>()
+                .BeforeMap((s, d) => d.Id = Guid.NewGuid());
 
             CreateMap<BookUpdateDto, Book>();
             CreateMap<BorrowingUpdateDto, Borrowing>();

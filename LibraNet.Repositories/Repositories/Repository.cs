@@ -72,5 +72,10 @@ namespace LibraNet.Domain.Repositories
         {
             dbSet.RemoveRange(entities);
         }
+
+        public void SaveChanges()
+        {
+            _db.SaveChanges();
+        }
     }
 }

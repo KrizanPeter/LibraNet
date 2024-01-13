@@ -1,5 +1,6 @@
 ﻿using LibraNet.Domain.LibraContext;
 using LibraNet.Services.AutoMapperProfiles;
+using LibraNet.Services.BackgroundServices;
 using Microsoft.EntityFrameworkCore;
 using System;
 
@@ -10,6 +11,7 @@ namespace LibraNet.Api.Extension
         public static IServiceCollection AddApplicationServicesModule(this IServiceCollection services, IConfiguration config)
         {
             services.AddAutoMapper(typeof(AutoMapperProfile).Assembly);
+            services.AddHostedService<EmailSenderBackgroundService>();
 
             services.AddDbContext<LibraDbContext>(options =>
             {

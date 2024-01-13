@@ -3,6 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using LibraNet.Contracts.Repositories;
 using LibraNet.Contracts.Services;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
@@ -11,17 +12,12 @@ namespace LibraNet.Services.BackgroundServices
     public class EmailSenderBackgroundService : BackgroundService
     {
         private readonly IHostEnvironment _environment;
-        private readonly IEmailNotificationService _emailNotificationService;
-        public ILogger<EmailSenderBackgroundService> _logger { get; }
+        private readonly IServiceScopeFactory _serviceScopeFactory;
 
-
-        public EmailSenderBackgroundService(ILogger<EmailSenderBackgroundService> logger,
-            IHostEnvironment environment, 
-            IEmailNotificationService emailNotificationService )
+        public EmailSenderBackgroundService(IServiceScopeFactory serviceScopeFactory, IHostEnvironment environment )
         {
-            _logger = logger;
+            _serviceScopeFactory = serviceScopeFactory;
             _environment = environment;
-            _emailNotificationService = emailNotificationService;
         }
 
 
@@ -31,12 +27,16 @@ namespace LibraNet.Services.BackgroundServices
             {
                 try
                 {
-                    _emailNotificationService.SendDayBeforeNotification();
-                    _emailNotificationService.SendDayAfterNotification();
+                    using (var scope = _serviceScopeFactory.CreateScope())
+                    {
+                        var emailService = scope.ServiceProvider.GetRequiredService<IEmailNotificationService>();
+                        emailService.SendDayAfterNotification();
+                        emailService.SendDayBeforeNotification();
+                    }
                 }
                 catch (Exception ex)
                 {
-                    _logger.LogError("Notification service failed: " + ex.Message);
+                    //some logging
                 }
 
                 Console.WriteLine($"Task is running at {DateTime.Now}.");
