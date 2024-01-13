@@ -3,13 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraNet", "LibraNet\LibraNet.csproj", "{C25B32FE-103D-47D6-8DE9-F24E4533D3C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraNet.Api", "LibraNet\LibraNet.Api.csproj", "{C25B32FE-103D-47D6-8DE9-F24E4533D3C3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraNet.Services", "LibraNet.ApplicationService\LibraNet.Services.csproj", "{A82EA65F-0436-431B-8C31-B9ED379CF19D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraNet.Domain", "LibraNet.Repositories\LibraNet.Domain.csproj", "{7AF78788-CEE8-49B0-8406-FA48BE6FD29C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraNet.Models", "LibraNet.Models\LibraNet.Models.csproj", "{5897B1F2-4E59-47D7-93A2-E1FF0FACB333}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraNet.Contracts", "LibraNet.Contracts\LibraNet.Contracts.csproj", "{EFDCF247-0A7E-4885-A558-C9E6324D2CA7}"
 EndProject
@@ -31,10 +29,6 @@ Global
 		{7AF78788-CEE8-49B0-8406-FA48BE6FD29C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7AF78788-CEE8-49B0-8406-FA48BE6FD29C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7AF78788-CEE8-49B0-8406-FA48BE6FD29C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5897B1F2-4E59-47D7-93A2-E1FF0FACB333}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5897B1F2-4E59-47D7-93A2-E1FF0FACB333}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5897B1F2-4E59-47D7-93A2-E1FF0FACB333}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5897B1F2-4E59-47D7-93A2-E1FF0FACB333}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EFDCF247-0A7E-4885-A558-C9E6324D2CA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EFDCF247-0A7E-4885-A558-C9E6324D2CA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EFDCF247-0A7E-4885-A558-C9E6324D2CA7}.Release|Any CPU.ActiveCfg = Release|Any CPU

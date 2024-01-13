@@ -14,7 +14,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LibraNet.Models\LibraNet.Models.csproj" />
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LibraNet.Contracts\LibraNet.Contracts.csproj" />
   </ItemGroup>
 
 </Project>

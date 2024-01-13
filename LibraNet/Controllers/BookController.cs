@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using LibraNet.Contracts.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace LibraNet.Controllers
 {
@@ -8,13 +9,16 @@ namespace LibraNet.Controllers
     {
 
         private readonly ILogger<BookController> _logger;
+        private readonly IBookService _bookService;
 
-        public BookController(ILogger<BookController> logger)
+
+        public BookController(ILogger<BookController> logger, IBookService bookService)
         {
             _logger = logger;
+            _bookService = bookService;
         }
 
-        [HttpGet(Name = "getById")]
+        [HttpGet(Name = "getBookById")]
         public IActionResult GetById(Guid Id)
         {
             return StatusCode(404);

@@ -1,4 +1,4 @@
-﻿using LibraNet.Models.Entities;
+﻿using LibraNet.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -8,7 +8,7 @@ namespace LibraNet.Domain.LibraContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source=library.db");
+            //optionsBuilder.UseSqlite("Data Source=library.db");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
