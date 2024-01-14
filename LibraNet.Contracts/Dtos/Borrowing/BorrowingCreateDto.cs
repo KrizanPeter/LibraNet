@@ -14,7 +14,5 @@ namespace LibraNet.Contracts.Dtos.Borrowing
 
         [Required(ErrorMessage = "The BorrowingTo field is required.")]
         public DateTime BorrowingTo { get; set; }
-
-        public BorrowingStatus Status { get; set; }
     }
 }

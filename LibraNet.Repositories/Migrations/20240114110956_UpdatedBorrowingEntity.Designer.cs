@@ -3,6 +3,7 @@ using System;
 using LibraNet.Domain.LibraContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LibraNet.Domain.Migrations
 {
     [DbContext(typeof(LibraDbContext))]
-    partial class LibraDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240114110956_UpdatedBorrowingEntity")]
+    partial class UpdatedBorrowingEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.1");

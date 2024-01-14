@@ -9,7 +9,6 @@ namespace LibraNet.Contracts.Dtos.Book
         public string? Title { get; set; }
         public string? Description { get; set; }
         public string? Author { get; set; }
-        public BookStatus? Status { get; set; }
         public Guid CreatedBy { get; set; }
         public Guid LastModifyBy { get; set; }
         public DateTime DateOfCreation { get; set; }

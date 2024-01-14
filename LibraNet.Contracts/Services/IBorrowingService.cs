@@ -7,9 +7,10 @@ namespace LibraNet.Contracts.Services
 {
     public interface IBorrowingService
     {
-        BorrowingDto GetById(Guid Id, CorrelationId correlationId);
-        BorrowingDto Create(BorrowingCreateDto bookCreateDto, CorrelationId correlationId);
-        BorrowingDto Update(BorrowingUpdateDto bookUpdateDto, CorrelationId correlationId);
-        void Delete(Guid Id);
+        Task<BorrowingDto> GetById(Guid Id, CorrelationId correlationId);
+        Task<BorrowingDto> Create(BorrowingCreateDto bookCreateDto, CorrelationId correlationId);
+        Task<BorrowingDto> Prolong(BorrowingProlongDto borrowingProlongDto, CorrelationId correlationId);
+        Task<BorrowingDto> Close(Guid Id, CorrelationId correlationId);
+
     }
 }

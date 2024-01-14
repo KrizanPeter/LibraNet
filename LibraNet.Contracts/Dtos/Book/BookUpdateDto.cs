@@ -13,6 +13,5 @@ namespace LibraNet.Contracts.Dtos.Book
 
         [Required(ErrorMessage = "The Author field is required.")]
         public required string Author { get; set; }
-        public BookStatus? Status { get; set; }
     }
 }

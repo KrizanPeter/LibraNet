@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace LibraNet.Domain.Repositories
 {
@@ -16,9 +17,5 @@ namespace LibraNet.Domain.Repositories
         {
         }
 
-        public Book Update(Book bookEntity)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

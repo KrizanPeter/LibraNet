@@ -10,6 +10,5 @@ namespace LibraNet.Contracts.Repositories
 {
     public interface IBookRepository : IRepository<Book>
     {
-        Book Update(Book bookEntity);
     }
 }

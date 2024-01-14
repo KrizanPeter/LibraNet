@@ -17,10 +17,13 @@ namespace LibraNet.Services.AutoMapperProfiles
                 .BeforeMap((s, d) => d.Id = Guid.NewGuid());
 
             CreateMap<BorrowingCreateDto, Borrowing>()
-                .BeforeMap((s, d) => d.Id = Guid.NewGuid());
+                .BeforeMap((s, d) => d.Id = Guid.NewGuid())
+                .BeforeMap((s, d) => d.Status = Contracts.Enums.BorrowingStatus.Active);
+
 
             CreateMap<BookUpdateDto, Book>();
-            CreateMap<BorrowingUpdateDto, Borrowing>();
+            CreateMap<BorrowingProlongDto, Borrowing>()
+                .BeforeMap((s, d) => d.Status = Contracts.Enums.BorrowingStatus.Prolonged);
 
         }
     }

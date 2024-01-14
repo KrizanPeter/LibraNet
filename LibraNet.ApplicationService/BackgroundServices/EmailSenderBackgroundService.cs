@@ -39,7 +39,7 @@ namespace LibraNet.Services.BackgroundServices
                     //some logging
                 }
 
-                Console.WriteLine($"Task is running at {DateTime.Now}.");
+                Console.WriteLine($"Task is running at {DateTime.UtcNow}.");
 
                 //just for testing purpose than every 24 hours
                 await Task.Delay(TimeSpan.FromMinutes(2), stoppingToken);

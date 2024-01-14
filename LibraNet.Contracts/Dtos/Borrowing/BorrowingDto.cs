@@ -12,6 +12,7 @@ namespace LibraNet.Contracts.Dtos.Borrowing
         public BorrowingStatus Status { get; set; }
         public Guid CreatedBy { get; set; }
         public Guid LastModifyBy { get; set; }
+        public DateTime ClosedAt { get; set; }
         public DateTime DateOfCreation { get; set; }
         public DateTime DateOfLastModification { get; set; }
         public BookDto? Book { get; set; }

@@ -1,6 +1,7 @@
 ﻿using LibraNet.Api.Controllers;
+using LibraNet.Contracts.Constants;
 using LibraNet.Contracts.Dtos.Book;
-using LibraNet.Contracts.Entities;
+using LibraNet.Contracts.Exceptions;
 using LibraNet.Contracts.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,60 +17,85 @@ namespace LibraNet.Controllers
         [HttpGet("getById")]
         public async Task<IActionResult> GetById(Guid id)
         {
+            var correlationId = GetNewCorrelationId();
+            _logger.LogInformation($"{Endpoints.BookGet} started. CorrelationId: {correlationId}");
+
             try
             {
-                var book =  await _bookService.GetById(id, GetNewCorrelationId());
+                var book =  await _bookService.GetById(id, correlationId);
                 return Ok(book);
             }
-            catch { }
-
-            return StatusCode(404);
+            catch (DataNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"{Endpoints.BookGet} started. CorrelationId: {correlationId}");
+                return StatusCode(500, ex.Message);
+            }
         }
 
         [HttpPost("create")]
-        public IActionResult Create(BookCreateDto bookCreateDto)
+        public async Task<IActionResult> Create(BookCreateDto bookCreateDto)
         {
+            var correlationId = GetNewCorrelationId();
+            _logger.LogInformation($"{Endpoints.BookCreate} started. CorrelationId: {correlationId}");
 
             try
-            {
-               
-                var book = _bookService.Create(bookCreateDto, GetNewCorrelationId());
+            {            
+                var book = await _bookService.Create(bookCreateDto, correlationId);
                 return Ok(book);
             }
-            catch
+            catch (Exception ex)
             {
-
+                _logger.LogError($"{Endpoints.BookCreate} failed. CorrelationId: {correlationId}");
+                return StatusCode(500, ex.Message);
             }
-            return BadRequest();
-            
         }
 
         [HttpPut("update")]
-        public IActionResult Update(BookUpdateDto bookUpdateDto)
+        public async Task<IActionResult> Update(BookUpdateDto bookUpdateDto)
         {
+            var correlationId = GetNewCorrelationId();
+            _logger.LogInformation($"{Endpoints.BookUpdate} started. CorrelationId: {correlationId}");
+            
             try
             {
-                var book = _bookService.Update(bookUpdateDto, GetNewCorrelationId());
+                var book = await _bookService.Update(bookUpdateDto, correlationId);
+                return Ok(book);
             }
-            catch 
+            catch (DataNotFoundException ex)
             {
-            
+                return NotFound(ex.Message);
             }
-
-
-            return StatusCode(404);
+            catch (Exception ex)
+            {
+                _logger.LogError($"{Endpoints.BookUpdate}. CorrelationId: {correlationId}, {ex}");
+                return StatusCode(500, ex.Message);
+            }
         }
 
         [HttpDelete("delete")]
-        public IActionResult Delete(Guid id)
+        public async Task<IActionResult> Delete(Guid id)
         {
+            var correlationId = GetNewCorrelationId();
+            _logger.LogInformation($"{Endpoints.BookDelete} started. CorrelationId: {correlationId}");
+
             try
             {
                 _bookService.Delete(id, GetNewCorrelationId());
+                return Ok();
             }
-            catch { }
-
-            return StatusCode(404);
+            catch (DataNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"{Endpoints.BookDelete} failed. CorrelationId: {correlationId}, {ex}");
+                return StatusCode(500, ex.Message);
+            }
         }
 
 

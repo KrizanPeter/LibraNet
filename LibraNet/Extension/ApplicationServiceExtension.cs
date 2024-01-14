@@ -10,6 +10,12 @@ namespace LibraNet.Api.Extension
     {
         public static IServiceCollection AddApplicationServicesModule(this IServiceCollection services, IConfiguration config)
         {
+            services.AddLogging(logging =>
+            {
+                logging.ClearProviders(); 
+                logging.AddConsole();     
+            });
+
             services.AddAutoMapper(typeof(AutoMapperProfile).Assembly);
             services.AddHostedService<EmailSenderBackgroundService>();
 

@@ -21,7 +21,7 @@ namespace LibraNet.Domain.Repositories
         {
             entity.CreatedBy = Guid.Empty;
             entity.LastModifyBy = Guid.Empty;
-            entity.DateOfCreation = DateTime.Now;
+            entity.DateOfCreation = DateTime.UtcNow;
             entity.DateOfLastModification = entity.DateOfCreation;
             await dbSet.AddAsync(entity);
         }
@@ -66,11 +66,19 @@ namespace LibraNet.Domain.Repositories
         public void Remove(T entity)
         {
             dbSet.Remove(entity);
+            _db.SaveChanges();
         }
 
         public void RemoveRange(IEnumerable<T> entities)
         {
             dbSet.RemoveRange(entities);
+            _db.SaveChanges();
+        }
+        public void Update(T entity)
+        {
+            entity.DateOfLastModification = DateTime.UtcNow;
+            _db.Set<T>().Update(entity);
+            SaveChanges();
         }
 
         public void SaveChanges()

@@ -9,6 +9,7 @@ namespace LibraNet.Contracts.Entities
         public Guid BookId { get; set; }
         public DateTime BorrowingFrom { get; set; }
         public DateTime BorrowingTo { get; set; }
+        public DateTime ClosedAt { get; set; }
         public BorrowingStatus Status { get; set; }
         public Guid CreatedBy { get; set; }
         public Guid LastModifyBy { get; set; }
