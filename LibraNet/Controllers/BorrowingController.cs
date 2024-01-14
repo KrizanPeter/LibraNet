@@ -35,7 +35,7 @@ namespace LibraNet.Controllers
                 var book = await _borrowingService.GetById(id, correlationId);
                 return Ok(book);
             }
-            catch (DataNotFoundException ex)
+            catch (LibraNetException ex)
             {
                 return NotFound(ex.Message);
             }
@@ -75,7 +75,7 @@ namespace LibraNet.Controllers
                 var borrowing = await _borrowingService.Prolong(borrowingProlongDto, GetNewCorrelationId());
                 return Ok(borrowing);
             }
-            catch (DataNotFoundException ex)
+            catch (LibraNetException ex)
             {
                 return NotFound(ex.Message);
             }
@@ -97,7 +97,7 @@ namespace LibraNet.Controllers
                 var borrowing = await _borrowingService.Close(Id, GetNewCorrelationId());
                 return Ok(borrowing);
             }
-            catch (DataNotFoundException ex)
+            catch (LibraNetException ex)
             {
                 return NotFound(ex.Message);
             }

@@ -32,7 +32,7 @@ namespace LibraNet.Services.Services
             return await GetById(bookEntity.Id, correlationId);
         }
 
-        public async void Delete(Guid id, CorrelationId correlationId)
+        public async Task Delete(Guid id, CorrelationId correlationId)
         {
             var bookentity = await _bookRepository.GetFirstOrDefaultAsync(a => a.Id == id);
 
@@ -51,7 +51,7 @@ namespace LibraNet.Services.Services
             
             if (bookentity == null)
             {
-                _logger.LogError($"Close operation for {LibraNetEntity.Book.GetEnumName()} {id} has not been found. CorrelationId {correlationId.Id}");
+                _logger.LogError($"Entity for {LibraNetEntity.Book.GetEnumName()} {id} has not been found. CorrelationId {correlationId.Id}");
                 throw new DataNotFoundException(LibraNetEntity.Book.GetEnumName() + " has not been found");
             }
             return _mapper.Map<BookDto>(bookentity);
@@ -63,7 +63,7 @@ namespace LibraNet.Services.Services
 
             if (bookEntity == null)
             {
-                _logger.LogError($"Close operation for {LibraNetEntity.Book.GetEnumName()} {bookUpdateDto.Id} has not been found. CorrelationId {correlationId.Id}");
+                _logger.LogError($"Entity for {LibraNetEntity.Book.GetEnumName()} {bookUpdateDto.Id} has not been found. CorrelationId {correlationId.Id}");
                 throw new DataNotFoundException(LibraNetEntity.Book.GetEnumName() + " has not been found");
             }
 

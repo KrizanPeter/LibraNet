@@ -11,6 +11,7 @@ namespace LibraNet.Repositories
         void RemoveRange(IEnumerable<T> entities);
         Task<IEnumerable<T>> GetAllAsync();
         Task<T> GetFirstOrDefaultAsync(Expression<Func<T, bool>>? filter = null);
+        Task<IEnumerable<T>> GetAllAsync(Expression<Func<T, bool>>? filter = null, Func<IQueryable<T>, IOrderedQueryable<T>>? orderBy = null);
         void Update(T entity);
         void SaveChanges();
     }

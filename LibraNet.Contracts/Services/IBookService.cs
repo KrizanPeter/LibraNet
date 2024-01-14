@@ -13,7 +13,7 @@ namespace LibraNet.Contracts.Services
     {
         Task<BookDto> GetById(Guid Id, CorrelationId correlationId);
         Task<BookDto> Create(BookCreateDto bookCreateDto, CorrelationId correlationId);
-         Task<BookDto> Update(BookUpdateDto bookUpdateDto, CorrelationId correlationId);
-        void Delete(Guid Id, CorrelationId correlationId);
+        Task<BookDto> Update(BookUpdateDto bookUpdateDto, CorrelationId correlationId);
+        Task Delete(Guid Id, CorrelationId correlationId);
     }
 }

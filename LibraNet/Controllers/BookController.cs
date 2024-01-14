@@ -25,7 +25,7 @@ namespace LibraNet.Controllers
                 var book =  await _bookService.GetById(id, correlationId);
                 return Ok(book);
             }
-            catch (DataNotFoundException ex)
+            catch (LibraNetException ex)
             {
                 return NotFound(ex.Message);
             }
@@ -65,7 +65,7 @@ namespace LibraNet.Controllers
                 var book = await _bookService.Update(bookUpdateDto, correlationId);
                 return Ok(book);
             }
-            catch (DataNotFoundException ex)
+            catch (LibraNetException ex)
             {
                 return NotFound(ex.Message);
             }
@@ -77,17 +77,17 @@ namespace LibraNet.Controllers
         }
 
         [HttpDelete("delete")]
-        public IActionResult Delete(Guid id)
+        public async Task<IActionResult> Delete(Guid id)
         {
             var correlationId = GetNewCorrelationId();
             _logger.LogInformation($"{Endpoints.BookDelete} started. CorrelationId: {correlationId.Id}");
 
             try
             {
-                _bookService.Delete(id, GetNewCorrelationId());
+                await _bookService.Delete(id, GetNewCorrelationId());
                 return Ok();
             }
-            catch (DataNotFoundException ex)
+            catch (LibraNetException ex)
             {
                 return NotFound(ex.Message);
             }
