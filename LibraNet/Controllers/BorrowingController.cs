@@ -28,7 +28,7 @@ namespace LibraNet.Controllers
         public async Task<IActionResult> GetById(Guid id)
         {
             var correlationId = GetNewCorrelationId();
-            _logger.LogInformation($"{Endpoints.BorrowingGet} started. CorrelationId: {correlationId}");
+            _logger.LogInformation($"{Endpoints.BorrowingGet} started. CorrelationId: {correlationId.Id}");
 
             try
             {
@@ -41,7 +41,7 @@ namespace LibraNet.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError($"{Endpoints.BorrowingGet} failed. CorrelationId: {correlationId}");
+                _logger.LogError($"{Endpoints.BorrowingGet} failed. CorrelationId: {correlationId.Id}");
                 return StatusCode(500, ex.Message);
             }     
         }
@@ -50,7 +50,7 @@ namespace LibraNet.Controllers
         public async Task<IActionResult> Create(BorrowingCreateDto borrowingCreateDto)
         {
             var correlationId = GetNewCorrelationId();
-            _logger.LogInformation($"{Endpoints.BorrowingCreate} started. CorrelationId: {correlationId}");
+            _logger.LogInformation($"{Endpoints.BorrowingCreate} started. CorrelationId: {correlationId.Id}");
 
             try
             {
@@ -59,7 +59,7 @@ namespace LibraNet.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError($"{Endpoints.BorrowingCreate} failed. CorrelationId: {correlationId}, {ex}");
+                _logger.LogError($"{Endpoints.BorrowingCreate} failed. CorrelationId: {correlationId.Id}, {ex}");
                 return StatusCode(500, ex.Message);
             }
         }
@@ -68,7 +68,7 @@ namespace LibraNet.Controllers
         public async Task<IActionResult> Prolong(BorrowingProlongDto borrowingProlongDto)
         {
             var correlationId = GetNewCorrelationId();
-            _logger.LogInformation($"{Endpoints.BorrowingProlong} started. CorrelationId: {correlationId}");
+            _logger.LogInformation($"{Endpoints.BorrowingProlong} started. CorrelationId: {correlationId.Id}");
 
             try
             {
@@ -81,7 +81,7 @@ namespace LibraNet.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError($"{Endpoints.BorrowingProlong} failed. CorrelationId: {correlationId}, {ex}");
+                _logger.LogError($"{Endpoints.BorrowingProlong} failed. CorrelationId: {correlationId.Id}, {ex}");
                 return StatusCode(500, ex.Message);
             }
         }
@@ -90,7 +90,7 @@ namespace LibraNet.Controllers
         public async Task<IActionResult> Close(Guid Id)
         {
             var correlationId = GetNewCorrelationId();
-            _logger.LogInformation($"{Endpoints.BorrowingClose} started. CorrelationId: {correlationId}");
+            _logger.LogInformation($"{Endpoints.BorrowingClose} started. CorrelationId: {correlationId.Id}");
 
             try
             {
@@ -103,7 +103,7 @@ namespace LibraNet.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError($"{Endpoints.BorrowingClose} failed. CorrelationId: {correlationId}, {ex}");
+                _logger.LogError($"{Endpoints.BorrowingClose} failed. CorrelationId: {correlationId.Id}, {ex}");
                 return StatusCode(500, ex.Message);
             }
         }

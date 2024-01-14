@@ -31,7 +31,7 @@ namespace LibraNet.Services.Services
 
             if (borrowingEntity == null)
             {
-                _logger.LogError($"Close operation for {LibraNetEntity.Borrowing.GetEnumName()} {id} has not been found. CorrelationId {correlationId}");
+                _logger.LogError($"Close operation for {LibraNetEntity.Borrowing.GetEnumName()} {id} has not been found. CorrelationId {correlationId.Id}");
                 throw new DataNotFoundException(LibraNetEntity.Borrowing.GetEnumName() + " has not been found");
             }
 
@@ -58,7 +58,7 @@ namespace LibraNet.Services.Services
 
             if (borrowingEntity == null)
             {
-                _logger.LogError($"Close operation for {LibraNetEntity.Borrowing.GetEnumName()} {id} has not been found. CorrelationId {correlationId}");
+                _logger.LogError($"Close operation for {LibraNetEntity.Borrowing.GetEnumName()} {id} has not been found. CorrelationId {correlationId.Id}");
                 throw new DataNotFoundException(LibraNetEntity.Borrowing.GetEnumName() + " has not been found");
             }
             return _mapper.Map<BorrowingDto>(borrowingEntity);
@@ -70,7 +70,7 @@ namespace LibraNet.Services.Services
 
             if (borrowingEntity == null)
             {
-                _logger.LogError($"Close operation for {LibraNetEntity.Borrowing.GetEnumName()} {borrowingUpdateDto.Id} has not been found. CorrelationId {correlationId}");
+                _logger.LogError($"Close operation for {LibraNetEntity.Borrowing.GetEnumName()} {borrowingUpdateDto.Id} has not been found. CorrelationId {correlationId.Id}");
                 throw new DataNotFoundException(LibraNetEntity.Borrowing.GetEnumName() + "in active/prolonged state has not been found");
             }
 

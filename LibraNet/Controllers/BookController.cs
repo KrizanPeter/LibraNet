@@ -18,7 +18,7 @@ namespace LibraNet.Controllers
         public async Task<IActionResult> GetById(Guid id)
         {
             var correlationId = GetNewCorrelationId();
-            _logger.LogInformation($"{Endpoints.BookGet} started. CorrelationId: {correlationId}");
+            _logger.LogInformation($"{Endpoints.BookGet} started. CorrelationId: {correlationId.Id}");
 
             try
             {
@@ -31,7 +31,7 @@ namespace LibraNet.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError($"{Endpoints.BookGet} started. CorrelationId: {correlationId}");
+                _logger.LogError($"{Endpoints.BookGet} started. CorrelationId: {correlationId.Id}");
                 return StatusCode(500, ex.Message);
             }
         }
@@ -40,7 +40,7 @@ namespace LibraNet.Controllers
         public async Task<IActionResult> Create(BookCreateDto bookCreateDto)
         {
             var correlationId = GetNewCorrelationId();
-            _logger.LogInformation($"{Endpoints.BookCreate} started. CorrelationId: {correlationId}");
+            _logger.LogInformation($"{Endpoints.BookCreate} started. CorrelationId: {correlationId.Id}");
 
             try
             {            
@@ -49,7 +49,7 @@ namespace LibraNet.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError($"{Endpoints.BookCreate} failed. CorrelationId: {correlationId}");
+                _logger.LogError($"{Endpoints.BookCreate} failed. CorrelationId: {correlationId.Id}");
                 return StatusCode(500, ex.Message);
             }
         }
@@ -58,7 +58,7 @@ namespace LibraNet.Controllers
         public async Task<IActionResult> Update(BookUpdateDto bookUpdateDto)
         {
             var correlationId = GetNewCorrelationId();
-            _logger.LogInformation($"{Endpoints.BookUpdate} started. CorrelationId: {correlationId}");
+            _logger.LogInformation($"{Endpoints.BookUpdate} started. CorrelationId: {correlationId.Id}");
             
             try
             {
@@ -71,16 +71,16 @@ namespace LibraNet.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError($"{Endpoints.BookUpdate}. CorrelationId: {correlationId}, {ex}");
+                _logger.LogError($"{Endpoints.BookUpdate}. CorrelationId: {correlationId.Id}, {ex}");
                 return StatusCode(500, ex.Message);
             }
         }
 
         [HttpDelete("delete")]
-        public async Task<IActionResult> Delete(Guid id)
+        public IActionResult Delete(Guid id)
         {
             var correlationId = GetNewCorrelationId();
-            _logger.LogInformation($"{Endpoints.BookDelete} started. CorrelationId: {correlationId}");
+            _logger.LogInformation($"{Endpoints.BookDelete} started. CorrelationId: {correlationId.Id}");
 
             try
             {
@@ -93,7 +93,7 @@ namespace LibraNet.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError($"{Endpoints.BookDelete} failed. CorrelationId: {correlationId}, {ex}");
+                _logger.LogError($"{Endpoints.BookDelete} failed. CorrelationId: {correlationId.Id}, {ex}");
                 return StatusCode(500, ex.Message);
             }
         }

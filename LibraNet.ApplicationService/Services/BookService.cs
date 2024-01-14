@@ -38,7 +38,7 @@ namespace LibraNet.Services.Services
 
             if (bookentity == null)
             {
-                _logger.LogError($"Close operation for {LibraNetEntity.Book.GetEnumName()} {id} has not been found. CorrelationId {correlationId}");
+                _logger.LogError($"Close operation for {LibraNetEntity.Book.GetEnumName()} {id} has not been found. CorrelationId {correlationId.Id}");
                 throw new DataNotFoundException(LibraNetEntity.Book.GetEnumName() + " has not been found");
             }
 
@@ -51,7 +51,7 @@ namespace LibraNet.Services.Services
             
             if (bookentity == null)
             {
-                _logger.LogError($"Close operation for {LibraNetEntity.Book.GetEnumName()} {id} has not been found. CorrelationId {correlationId}");
+                _logger.LogError($"Close operation for {LibraNetEntity.Book.GetEnumName()} {id} has not been found. CorrelationId {correlationId.Id}");
                 throw new DataNotFoundException(LibraNetEntity.Book.GetEnumName() + " has not been found");
             }
             return _mapper.Map<BookDto>(bookentity);
@@ -63,7 +63,7 @@ namespace LibraNet.Services.Services
 
             if (bookEntity == null)
             {
-                _logger.LogError($"Close operation for {LibraNetEntity.Book.GetEnumName()} {bookUpdateDto.Id} has not been found. CorrelationId {correlationId}");
+                _logger.LogError($"Close operation for {LibraNetEntity.Book.GetEnumName()} {bookUpdateDto.Id} has not been found. CorrelationId {correlationId.Id}");
                 throw new DataNotFoundException(LibraNetEntity.Book.GetEnumName() + " has not been found");
             }
 
